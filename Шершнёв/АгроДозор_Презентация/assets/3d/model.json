@@ -1,0 +1,83 @@
+{
+ "buckets": [
+  {
+   "name": "body",
+   "tris": 7948,
+   "posOffset": 0,
+   "nrmOffset": 286128,
+   "vertCount": 23844
+  },
+  {
+   "name": "machinery",
+   "tris": 1212,
+   "posOffset": 572256,
+   "nrmOffset": 615888,
+   "vertCount": 3636
+  },
+  {
+   "name": "steel",
+   "tris": 6060,
+   "posOffset": 659520,
+   "nrmOffset": 877680,
+   "vertCount": 18180
+  },
+  {
+   "name": "rubber",
+   "tris": 4896,
+   "posOffset": 1095840,
+   "nrmOffset": 1272096,
+   "vertCount": 14688
+  },
+  {
+   "name": "rim",
+   "tris": 1904,
+   "posOffset": 1448352,
+   "nrmOffset": 1516896,
+   "vertCount": 5712
+  },
+  {
+   "name": "manipulator",
+   "tris": 7580,
+   "posOffset": 1585440,
+   "nrmOffset": 1858320,
+   "vertCount": 22740
+  },
+  {
+   "name": "tube",
+   "tris": 22493,
+   "posOffset": 2131200,
+   "nrmOffset": 2940948,
+   "vertCount": 67479
+  },
+  {
+   "name": "sensor",
+   "tris": 236,
+   "posOffset": 3750696,
+   "nrmOffset": 3759192,
+   "vertCount": 708
+  },
+  {
+   "name": "lens",
+   "tris": 372,
+   "posOffset": 3767688,
+   "nrmOffset": 3781080,
+   "vertCount": 1116
+  },
+  {
+   "name": "camera",
+   "tris": 132,
+   "posOffset": 3794472,
+   "nrmOffset": 3799224,
+   "vertCount": 396
+  },
+  {
+   "name": "hopper",
+   "tris": 1872,
+   "posOffset": 3803976,
+   "nrmOffset": 3871368,
+   "vertCount": 5616
+  }
+ ],
+ "units": "mm",
+ "totalTris": 54705
+}
