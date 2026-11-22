@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="АгроДозор — роботизированный комплекс точечного внесения родентицидной приманки в норы грызунов. Живая страница проекта Студенческого стартапа.">
+<title>АгроДозор — живая страница проекта</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d9a441'/%3E%3Ccircle cx='16' cy='16' r='6.4' fill='none' stroke='%23141007' stroke-width='2.6'/%3E%3Cpath d='M16 4v6M16 22v6M4 16h6M22 16h6' stroke='%23141007' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/montserrat-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/montserrat-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/montserrat-cyrillic-800-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/montserrat-latin-800-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/montserrat-cyrillic-900-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/montserrat-latin-900-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/manrope-cyrillic-400-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/manrope-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-cyrillic-600-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/manrope-cyrillic-800-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/manrope-latin-800-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/ibm-plex-mono-cyrillic-400-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/ibm-plex-mono-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/ibm-plex-mono-cyrillic-600-normal.woff2') format('woff2');unicode-range:U+0400-04FF,U+0450-045F,U+2116;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF;}
+
+:root{
+  --ink:#141d16;
+  --dark:#0f1712;
+  --dark-2:#151f18;
+  --cream:#f2efe3;
+  --cream-mute:#c9d0bc;
+  --amber:#d9a441;
+  --amber-2:#eec25a;
+  --muted:#8a957f;
+  --line:rgba(242,239,227,.14);
+  --stage-w:1600px;
+  --stage-h:900px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;background:#070b08;}
+body{font-family:'Manrope',sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px;}
+
+/* ============ СЦЕНА ============ */
+#stage{position:fixed;left:50%;top:50%;width:var(--stage-w);height:var(--stage-h);transform:translate(-50%,-50%) scale(1);overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#141d16 0%,#070b08 75%);}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;cursor:grab;opacity:0;transition:opacity 1.1s ease;}
+#stage.gl-ready #gl{opacity:1;}
+#dust{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;}
+#glow{position:absolute;z-index:2;pointer-events:none;width:820px;height:820px;left:1050px;top:310px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(217,164,65,.16),transparent 70%);filter:blur(4px);}
+
+/* ============ ВЕРХНЯЯ ПОЛОСА ============ */
+#top{position:absolute;z-index:6;left:0;right:0;top:0;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;}
+.brand-mark{width:32px;height:32px;flex:0 0 auto;}
+.brand-text .b-word{font-family:'IBM Plex Mono';font-weight:600;font-size:12px;letter-spacing:.32em;color:var(--cream);}
+.brand-text .b-sub{font-family:'IBM Plex Mono';font-size:7.5px;letter-spacing:.22em;color:var(--muted);margin-top:2px;}
+.top-right{display:flex;align-items:center;gap:12px;}
+.live-badge{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.24em;color:var(--amber-2);border:1px solid rgba(217,164,65,.4);border-radius:20px;padding:8px 14px;background:rgba(217,164,65,.07);}
+.live-badge .ldot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:ldotPulse 1.5s infinite;}
+@keyframes ldotPulse{0%,100%{box-shadow:0 0 0 0 rgba(217,164,65,.7);}50%{box-shadow:0 0 0 5px rgba(217,164,65,0);}}
+.fs-btn{display:flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:18px;border:1px solid var(--line);font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.18em;color:var(--cream);transition:border-color .3s,background .3s;}
+.fs-btn:hover{border-color:var(--amber);background:rgba(217,164,65,.1);}
+.fs-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ============ ТЕКСТ СЛЕВА ============ */
+#copy{position:absolute;z-index:5;left:64px;top:104px;width:660px;pointer-events:none;}
+#copy>*{pointer-events:auto;}
+.kicker{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.3em;color:var(--amber-2);text-transform:uppercase;opacity:0;animation:riseIn .9s .15s ease forwards;}
+.kicker::before{content:"";width:40px;height:1px;background:var(--amber);}
+@keyframes riseIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+h1.hero{font-family:'Montserrat';font-weight:900;font-size:158px;line-height:.9;letter-spacing:-.035em;color:var(--cream);margin:18px 0 20px;opacity:0;animation:riseIn 1s .3s ease forwards;}
+h1.hero .do{color:var(--amber);}
+.tagline{font-size:19px;line-height:1.45;font-weight:600;color:#e8e6d6;max-width:560px;opacity:0;animation:riseIn 1s .45s ease forwards;}
+.tagline b{color:var(--amber-2);font-weight:800;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;opacity:0;animation:riseIn 1s .58s ease forwards;}
+.chip{font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.16em;color:#cdd6c6;border:1px solid var(--line);border-radius:5px;padding:7px 11px;background:rgba(21,31,24,.6);backdrop-filter:blur(2px);}
+.hairline{width:560px;height:1px;background:var(--line);margin:22px 0 14px;opacity:0;animation:riseIn 1s .68s ease forwards;}
+.mech-line{font-size:12.5px;line-height:1.55;color:#9fae97;max-width:520px;opacity:0;animation:riseIn 1s .75s ease forwards;}
+.mech-line b{color:var(--cream);font-weight:700;}
+.trl-line{margin-top:12px;font-family:'IBM Plex Mono';font-size:8px;letter-spacing:.14em;line-height:1.8;color:#a9b6a2;text-transform:uppercase;opacity:0;animation:riseIn 1s .85s ease forwards;}
+.cta-row{display:flex;gap:12px;margin-top:18px;opacity:0;animation:riseIn 1s .95s ease forwards;}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;border-radius:23px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.16em;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s,color .25s;}
+.btn-amber{background:var(--amber);color:#241b06;font-weight:600;}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(217,164,65,.35);}
+.btn-ghost{border:1px solid var(--line);color:var(--cream);}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber-2);transform:translateY(-2px);}
+.btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ============ КОМАНДА (живые персонажи) ============ */
+.char{position:absolute;z-index:4;bottom:150px;display:flex;flex-direction:column;align-items:center;gap:0;transition:filter .3s;animation:charIn 1.1s ease backwards;}
+.char img{pointer-events:none;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 18px 22px rgba(0,0,0,.62));transform-origin:50% 100%;animation:bob 3.4s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-.6deg);}50%{transform:translateY(-14px) rotate(.7deg);}}
+@keyframes charIn{from{opacity:0;transform:translateY(60px);}to{opacity:1;transform:none;}}
+.char .shadow{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);width:70%;height:18px;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent 75%);border-radius:50%;z-index:-1;}
+.char:hover img{filter:drop-shadow(0 22px 30px rgba(217,164,65,.25)) drop-shadow(0 18px 22px rgba(0,0,0,.6));}
+.char:active img{animation:hop .5s ease;}
+@keyframes hop{0%{transform:translateY(0) scale(1,1);}30%{transform:translateY(-38px) scale(.96,1.05);}60%{transform:translateY(4px) scale(1.05,.95);}100%{transform:translateY(0) scale(1,1);}}
+.char .c-tag{margin-top:10px;font-family:'IBM Plex Mono';font-size:8px;letter-spacing:.18em;color:var(--cream);background:rgba(15,23,18,.72);border:1px solid var(--line);border-radius:6px;padding:6px 10px;white-space:nowrap;text-align:center;backdrop-filter:blur(3px);transition:border-color .3s;}
+.char .c-tag small{display:block;color:var(--amber-2);font-size:6.5px;letter-spacing:.22em;margin-top:2px;}
+.char:hover .c-tag,.char.on .c-tag{border-color:var(--amber);}
+.char.on img{animation:bob 3.4s ease-in-out infinite;filter:drop-shadow(0 0 26px rgba(217,164,65,.35)) drop-shadow(0 18px 22px rgba(0,0,0,.6));}
+#charIgor{left:1010px;animation-delay:.35s;}
+#charIgor img{height:416px;animation-delay:.2s;}
+#charKate{left:1200px;animation-delay:.5s;}
+#charKate img{height:372px;animation-delay:.9s;}
+#charMentor{left:1372px;animation-delay:.65s;}
+#charMentor img{height:438px;animation-delay:1.6s;}
+
+/* облачко реплики */
+#bubble{position:absolute;z-index:7;width:330px;background:rgba(13,19,15,.92);border:1px solid rgba(217,164,65,.5);border-radius:16px;padding:14px 16px 12px;backdrop-filter:blur(8px);box-shadow:0 18px 50px rgba(0,0,0,.5);opacity:0;transform:translateY(14px) scale(.92);pointer-events:none;transition:opacity .28s,transform .32s cubic-bezier(.34,1.56,.64,1);}
+#bubble.on{opacity:1;transform:none;}
+#bubble .bb-name{font-family:'IBM Plex Mono';font-size:8px;letter-spacing:.24em;color:var(--amber-2);text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+#bubble .bb-name::after{content:"";flex:1;height:1px;background:rgba(217,164,65,.3);}
+#bubble .bb-text{margin-top:8px;font-size:13.5px;line-height:1.5;color:#e8e6d6;font-weight:500;}
+#bubble .bb-hint{margin-top:8px;font-family:'IBM Plex Mono';font-size:6.5px;letter-spacing:.16em;color:#5f6c57;text-transform:uppercase;}
+#bubble::after{content:"";position:absolute;bottom:-8px;left:60px;width:14px;height:14px;background:inherit;border-right:1px solid rgba(217,164,65,.5);border-bottom:1px solid rgba(217,164,65,.5);transform:rotate(45deg);}
+
+/* ============ НИЖНЯЯ ПОЛОСА ============ */
+#strip{position:absolute;z-index:6;left:0;right:0;bottom:0;height:132px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 40px 22px;border-top:1px solid rgba(242,239,227,.07);background:linear-gradient(0deg,rgba(7,11,8,.55),transparent);}
+.strip-col{display:flex;flex-direction:column;gap:6px;}
+.strip-k{font-family:'IBM Plex Mono';font-size:7px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase;}
+.strip-v{font-size:13px;color:#dfe6d8;font-weight:600;}
+.strip-v a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(217,164,65,.5);}
+.strip-v a:hover{color:var(--amber-2);}
+.strip-center{display:flex;gap:10px;align-items:center;}
+.stat{text-align:center;border:1px solid var(--line);border-radius:12px;padding:8px 18px;background:rgba(15,23,18,.5);}
+.stat b{display:block;font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--amber-2);letter-spacing:-.01em;}
+.stat small{font-family:'IBM Plex Mono';font-size:6.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;}
+.strip-note{font-family:'IBM Plex Mono';font-size:6.5px;letter-spacing:.12em;color:#5f6c57;text-transform:uppercase;line-height:1.9;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="АгроДозор — живая страница проекта">
+
+  <canvas id="gl" aria-label="Интерактивная 3D-модель машины «АгроДозор». Вращайте указателем."></canvas>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div id="glow" aria-hidden="true"></div>
+
+  <header id="top">
+    <a class="brand" href="https://github.com/Igorr112323/Startup_Like_A_Diploma/blob/arena/27b3a082-startup-like-a-diploma/%D0%A8%D0%B5%D1%80%D1%88%D0%BD%D1%91%D0%B2/%D0%90%D0%B3%D1%80%D0%BE%D0%94%D0%BE%D0%B7%D0%BE%D1%80_%D0%9F%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F/%D0%90%D0%B3%D1%80%D0%BE%D0%94%D0%BE%D0%B7%D0%BE%D1%80_%D0%90%D0%B2%D1%82%D0%BE%D0%BD%D0%BE%D0%BC%D0%BD%D1%8B%D0%B9.html" target="_blank" rel="noopener" title="Полная презентация проекта">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#d9a441"/><circle cx="16" cy="16" r="6.4" fill="none" stroke="#141007" stroke-width="2.6"/><path d="M16 4v6M16 22v6M4 16h6M22 16h6" stroke="#141007" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span class="brand-text"><span class="b-word">АГРОДОЗОР</span><br><span class="b-sub">ЖИВАЯ СТРАНИЦА ПРОЕКТА</span></span>
+    </a>
+    <div class="top-right">
+      <div class="live-badge"><span class="ldot"></span>ВКС · 25.11.2026</div>
+      <button class="fs-btn" id="fsBtn" aria-label="Весь экран"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>ВЕСЬ ЭКРАН</button>
+    </div>
+  </header>
+
+  <main id="copy">
+    <div class="kicker">Студенческий стартап · 8 очередь</div>
+    <h1 class="hero">Агро<br><span class="do">Дозор</span></h1>
+    <p class="tagline">Роботизированный комплекс, который вносит родентицидную приманку <b>точечно в нору</b>. Человек ведёт машину — машина вносит дозу.</p>
+    <div class="chips">
+      <span class="chip">YOLO-ДЕТЕКЦИЯ</span>
+      <span class="chip">3 КАМЕРЫ</span>
+      <span class="chip">ШАГ ТРУБКИ 300 ММ</span>
+      <span class="chip">ДОЗА 5–100 Г</span>
+    </div>
+    <div class="hairline"></div>
+    <p class="mech-line"><b>Без GPS и автономной навигации</b> — осознанный выбор: ниже стоимость, выше надёжность в поле. Финальное решение «это нора?» принимает оператор.</p>
+    <p class="trl-line">TRL-проектный образец в разработке<br>Характеристики — целевые, испытаниями не подтверждены</p>
+    <div class="cta-row">
+      <a class="btn btn-amber" href="https://github.com/Igorr112323/Startup_Like_A_Diploma/blob/arena/27b3a082-startup-like-a-diploma/%D0%A8%D0%B5%D1%80%D1%88%D0%BD%D1%91%D0%B2/%D0%90%D0%B3%D1%80%D0%BE%D0%94%D0%BE%D0%B7%D0%BE%D1%80_%D0%9F%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F/%D0%90%D0%B3%D1%80%D0%BE%D0%94%D0%BE%D0%B7%D0%BE%D1%80_%D0%90%D0%B2%D1%82%D0%BE%D0%BD%D0%BE%D0%BC%D0%BD%D1%8B%D0%B9.html" target="_blank" rel="noopener">ПОЛНАЯ ПРЕЗЕНТАЦИЯ · 15 СЦЕН<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="mailto:igorsh2006@mail.ru">IGORSH2006@MAIL.RU</a>
+    </div>
+  </main>
+
+  <button class="char" id="charIgor" aria-label="Игорь, автор проекта — нажмите, услышать реплику" aria-pressed="false">
+    <span class="shadow"></span>
+    <img src="assets/img/char_igor.png" alt="Иллюстрация: Игорь Шершнёв — автор проекта">
+    <span class="c-tag">ШЕРШНЁВ ИГОРЬ<small>АВТОР ПРОЕКТА</small></span>
+  </button>
+  <button class="char" id="charKate" aria-label="Катерина, агроном проекта — нажмите, услышать реплику" aria-pressed="false">
+    <span class="shadow"></span>
+    <img src="assets/img/char_kate.png" alt="Иллюстрация: Катерина Скакунова — агроном проекта">
+    <span class="c-tag">СКАКУНОВА КАТЕРИНА<small>АГРОНОМ ПРОЕКТА</small></span>
+  </button>
+  <button class="char" id="charMentor" aria-label="Богус А.Э., научный руководитель — нажмите, услышать реплику" aria-pressed="false">
+    <span class="shadow"></span>
+    <img src="assets/img/char_mentor.png" alt="Иллюстрация: научный руководитель проекта">
+    <span class="c-tag">БОГУС А. Э.<small>НАУЧНЫЙ РУКОВОДИТЕЛЬ · К.Т.Н.</small></span>
+  </button>
+
+  <div id="bubble" role="status" aria-live="polite">
+    <div class="bb-name" id="bbName">ИГОРЬ</div>
+    <div class="bb-text" id="bbText">Текст реплики</div>
+    <div class="bb-hint">Нажмите на персонажа ещё раз, чтобы закрыть</div>
+  </div>
+
+  <footer id="strip">
+    <div class="strip-col">
+      <span class="strip-k">Защита проекта</span>
+      <span class="strip-v">25.11.2026 · ВКС · Минсельхоз России</span>
+      <span class="strip-note">№ заявки — не указан в материалах конкурса</span>
+    </div>
+    <div class="strip-center" aria-hidden="true">
+      <div class="stat"><b>1 000 000 ₽</b><small>Грант «Студенческий стартап»</small></div>
+      <div class="stat"><b>2 этапа</b><small>НИОКР → прототип</small></div>
+      <div class="stat"><b>12 мес</b><small>От заявки к машине в поле</small></div>
+    </div>
+    <div class="strip-col" style="align-items:flex-end;text-align:right;">
+      <span class="strip-k">Контакты</span>
+      <span class="strip-v"><a href="tel:+79604843463">8 960 484-34-63</a></span>
+      <span class="strip-v"><a href="mailto:igorsh2006@mail.ru">igorsh2006@mail.ru</a></span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/three.min.js"></script>
+<script>
+'use strict';
+var stage = document.getElementById('stage');
+var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ============ масштаб сцены 1600×900 под окно ============ */
+function fitStage(){
+  var s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+  stage.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+}
+window.addEventListener('resize', fitStage); fitStage();
+
+/* ============ пыль/искры в воздухе ============ */
+(function dust(){
+  if (reduceMotion) return;
+  var c = document.getElementById('dust');
+  var ctx = c.getContext('2d');
+  var W = c.width = 1600, H = c.height = 900;
+  var motes = [];
+  for (var i = 0; i < 64; i++) {
+    motes.push({
+      x: Math.random() * W, y: Math.random() * H,
+      r: 0.8 + Math.random() * 2.2,
+      vy: 0.12 + Math.random() * 0.3, vx: 0.06 + Math.random() * 0.16,
+      phase: Math.random() * Math.PI * 2, speed: 0.5 + Math.random() * 0.9,
+      hue: Math.random() < 0.72 ? '217,164,65' : '168,190,140'
+    });
+  }
+  function tick(t){
+    requestAnimationFrame(tick);
+    if (document.hidden) return;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < motes.length; i++) {
+      var m = motes[i];
+      m.y -= m.vy; m.x += m.vx + Math.sin(t * 0.001 * m.speed + m.phase) * 0.35;
+      if (m.y < -8) { m.y = H + 8; m.x = Math.random() * W; }
+      if (m.x > W + 8) m.x = -8;
+      var a = 0.12 + 0.3 * (0.5 + 0.5 * Math.sin(t * 0.0016 * m.speed + m.phase));
+      ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + m.hue + ',' + a.toFixed(3) + ')'; ctx.fill();
+    }
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ============ реплики команды ============ */
+var LINES = {
+  charIgor:   { name: 'ШЕРШНЁВ ИГОРЬ · АВТОР', text: 'Я веду машину по полю, а дозу в нору вносит она сама: 5–100 г, только после подтверждения входа датчиком освещённости.' },
+  charKate:   { name: 'СКАКУНОВА КАТЕРИНА · АГРОНОМ', text: 'Нора на кадре — и работаем. Ягоды целы, птицам и людям приманка недоступна: яд уходит строго под землю.' },
+  charMentor: { name: 'БОГУС А. Э. · К.Т.Н., ДОЦЕНТ', text: 'Автономной навигации у машины нет — и это осознанный выбор. Решение «это нора?» принимает человек, а не датчик.' }
+};
+var bubble = document.getElementById('bubble');
+var bbName = document.getElementById('bbName');
+var bbText = document.getElementById('bbText');
+var currentChar = null;
+var charBtns = ['charIgor', 'charKate', 'charMentor'].map(function(id){ return document.getElementById(id); });
+function positionBubble(btn){
+  var br = btn.getBoundingClientRect();
+  var sr = stage.getBoundingClientRect();
+  var scale = sr.width / 1600;
+  var cx = (br.left - sr.left + br.width / 2) / scale;
+  var topY = (br.top - sr.top) / scale;
+  var bx = Math.min(1600 - 340, Math.max(10, cx - 165));
+  var by = Math.max(84, topY - 150);
+  bubble.style.left = bx + 'px';
+  bubble.style.top = by + 'px';
+}
+function toggleBubble(btn){
+  var id = btn.id;
+  if (currentChar === id && bubble.classList.contains('on')) {
+    closeBubble(); return;
+  }
+  currentChar = id;
+  bbName.textContent = LINES[id].name;
+  bbText.textContent = LINES[id].text;
+  characterJump(btn);
+  bubble.classList.add('on');
+  charBtns.forEach(function(b){ b.classList.toggle('on', b === btn); b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  positionBubble(btn);
+}
+function closeBubble(){
+  bubble.classList.remove('on'); currentChar = null;
+  charBtns.forEach(function(b){ b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); });
+}
+function characterJump(btn){
+  if (reduceMotion) return;
+  var img = btn.querySelector('img');
+  img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
+  btn.classList.remove('on'); void btn.offsetWidth;
+}
+charBtns.forEach(function(btn){ btn.addEventListener('click', function(e){ e.stopPropagation(); toggleBubble(btn); }); });
+stage.addEventListener('click', function(e){ if (!bubble.contains(e.target)) closeBubble(); });
+window.addEventListener('keydown', function(e){
+  var k = e.key;
+  if (k === 'Escape') closeBubble();
+  else if (k === 'f' || k === 'F' || k === 'а' || k === 'А') toggleFullscreen();
+  else if (k === 'r' || k === 'R' || k === 'к' || k === 'К') resetCamera();
+  else if (k === '1') toggleBubble(document.getElementById('charIgor'));
+  else if (k === '2') toggleBubble(document.getElementById('charKate'));
+  else if (k === '3') toggleBubble(document.getElementById('charMentor'));
+});
+
+/* ============ полноэкранный режим ============ */
+var fsBtn = document.getElementById('fsBtn');
+function toggleFullscreen(){
+  var doc = document, el = doc.documentElement;
+  var isFs = doc.fullscreenElement || doc.webkitFullscreenElement;
+  if (!isFs) { var req = el.requestFullscreen || el.webkitRequestFullscreen; if (req) { try { var p = req.call(el); if (p && p.catch) p.catch(function(){}); } catch (e) {} } }
+  else { var exit = doc.exitFullscreen || doc.webkitExitFullscreen; if (exit) { try { exit.call(doc); } catch (e) {} } }
+}
+fsBtn.addEventListener('click', toggleFullscreen);
+
+/* ============ 3D · машина «АгроДозор» ============ */
+var STAGE_W = 1600, STAGE_H = 900;
+var glCanvas = document.getElementById('gl');
+var renderer = null, scene3 = null, camera3 = null, camTarget = null;
+var machine = null, modelReady = false;
+var bucketMeshes = {};
+var orbit = { theta: 0.78, phi: 1.12, radius: 2.68, tx: 0.52, ty: 0.24, tz: 0 };
+var pointerDown = false, lastX = 0, lastY = 0, lastInteract = 0;
+var presetAnim = null, lastFrame = 0;
+var mouseSm = { x: 0, y: 0 };
+
+function failGL(){ stage.classList.add('gl-ready'); } /* сцена и так живёт без WebGL */
+
+function makeNoiseTexture(){
+  var c = document.createElement('canvas'); c.width = c.height = 256;
+  var g = c.getContext('2d');
+  g.fillStyle = '#211e16'; g.fillRect(0, 0, 256, 256);
+  for (var i = 0; i < 1500; i++) {
+    var x = Math.random() * 256, y = Math.random() * 256, r = Math.random() * 1.8 + 0.3;
+    var v = 26 + Math.random() * 32;
+    g.fillStyle = 'rgba(' + (v + 16) + ',' + (v + 8) + ',' + (v - 4) + ',' + (0.18 + Math.random() * 0.32) + ')';
+    g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+  }
+  var tex = new THREE.CanvasTexture(c);
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(5, 5);
+  return tex;
+}
+function makeShadowTexture(){
+  var c = document.createElement('canvas'); c.width = c.height = 256;
+  var g = c.getContext('2d');
+  var grad = g.createRadialGradient(128, 128, 12, 128, 128, 126);
+  grad.addColorStop(0, 'rgba(0,0,0,0.78)'); grad.addColorStop(0.62, 'rgba(0,0,0,0.34)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 256, 256);
+  return new THREE.CanvasTexture(c);
+}
+function makeGlowSprite(){
+  var c = document.createElement('canvas'); c.width = c.height = 128;
+  var g = c.getContext('2d');
+  var grad = g.createRadialGradient(64, 64, 2, 64, 64, 62);
+  grad.addColorStop(0, 'rgba(238,194,90,0.9)'); grad.addColorStop(0.35, 'rgba(217,164,65,0.32)'); grad.addColorStop(1, 'rgba(217,164,65,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 128, 128);
+  return new THREE.CanvasTexture(c);
+}
+
+function initGL(){
+  if (typeof THREE === 'undefined') { failGL(); return; }
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: glCanvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  } catch (e) { failGL(); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(STAGE_W, STAGE_H, false);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0x000000, 0);
+  try {
+    scene3 = new THREE.Scene();
+    scene3.fog = new THREE.Fog(0x0e1511, 3.6, 7.6);
+    camera3 = new THREE.PerspectiveCamera(40, STAGE_W / STAGE_H, 0.05, 60);
+    camTarget = new THREE.Vector3(orbit.tx, orbit.ty, orbit.tz);
+
+    var hemi = new THREE.HemisphereLight(0xdfe8d2, 0x131a12, 0.78); scene3.add(hemi);
+    var key = new THREE.DirectionalLight(0xffe9bd, 1.05);
+    key.position.set(2.6, 3.4, 1.6); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    key.shadow.camera.left = -1.6; key.shadow.camera.right = 1.6; key.shadow.camera.top = 1.6; key.shadow.camera.bottom = -1.6;
+    key.shadow.bias = -0.0004;
+    scene3.add(key);
+    var rim = new THREE.DirectionalLight(0xa8c8e8, 0.55); rim.position.set(-2.4, 1.7, -2.2); scene3.add(rim);
+    var fill = new THREE.DirectionalLight(0xfff2d8, 0.35); fill.position.set(-1.4, 1.0, 2.4); scene3.add(fill);
+
+    var soil = new THREE.Mesh(
+      new THREE.CircleGeometry(5.2, 48),
+      new THREE.MeshStandardMaterial({ map: makeNoiseTexture(), color: 0x3a382f, roughness: 1, metalness: 0 })
+    );
+    soil.rotation.x = -Math.PI / 2; soil.position.y = -0.002; soil.receiveShadow = true; scene3.add(soil);
+    var blob = new THREE.Mesh(new THREE.PlaneGeometry(2.15, 1.7), new THREE.MeshBasicMaterial({ map: makeShadowTexture(), transparent: true, depthWrite: false }));
+    blob.rotation.x = -Math.PI / 2; blob.position.y = 0.002; scene3.add(blob);
+    var ring = new THREE.Mesh(new THREE.RingGeometry(1.0, 1.035, 96), new THREE.MeshBasicMaterial({ color: 0xd9a441, transparent: true, opacity: 0.42, side: THREE.DoubleSide }));
+    ring.rotation.x = -Math.PI / 2; ring.position.y = 0.004; scene3.add(ring);
+    scene3.userData.ring = ring;
+    var glowSprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeGlowSprite(), transparent: true, depthWrite: false, opacity: 0.55 }));
+    glowSprite.scale.set(1.2, 1.2, 1); glowSprite.position.set(0.52, 0.6, 0); scene3.add(glowSprite);
+    scene3.userData.glow = glowSprite;
+
+    bindOrbit();
+    loadMachine();
+  } catch (e) { failGL(); return; }
+  requestAnimationFrame(glLoop);
+}
+
+var BUCKET_STYLE = {
+  body:        { color: 0x4c5843, roughness: 0.62, metalness: 0.32 },
+  manipulator: { color: 0x5d6a50, roughness: 0.52, metalness: 0.35 },
+  hopper:      { color: 0x57543f, roughness: 0.78, metalness: 0.1 },
+  rubber:      { color: 0x1f221d, roughness: 0.96, metalness: 0.0 },
+  rim:         { color: 0x3a3f3c, roughness: 0.4,  metalness: 0.7 },
+  steel:       { color: 0xa9b1b3, roughness: 0.3,  metalness: 0.9 },
+  tube:        { color: 0xccd2d3, roughness: 0.2,  metalness: 0.92 },
+  machinery:   { color: 0x2f3237, roughness: 0.55, metalness: 0.55 },
+  camera:      { color: 0x1e2126, roughness: 0.45, metalness: 0.4 },
+  lens:        { color: 0x10333f, roughness: 0.08, metalness: 0.25, emissive: 0x2b7f9d, emissiveIntensity: 0.9 },
+  sensor:      { color: 0xd9a441, roughness: 0.35, metalness: 0.35, emissive: 0xa86f14, emissiveIntensity: 0.8 }
+};
+
+function loadMachine(){
+  Promise.all([
+    fetch('assets/3d/model.json').then(function(r){ if (!r.ok) throw new Error('meta'); return r.json(); }),
+    fetch('assets/3d/model.bin').then(function(r){ if (!r.ok) throw new Error('bin'); return r.arrayBuffer(); })
+  ]).then(function(res){
+    var meta = res[0], buf = res[1];
+    machine = new THREE.Group();
+    meta.buckets.forEach(function(b){
+      var n = b.vertCount;
+      var pos = new Float32Array(buf.slice(b.posOffset, b.posOffset + n * 3 * 4));
+      var nrm = new Float32Array(buf.slice(b.nrmOffset, b.nrmOffset + n * 3 * 4));
+      var geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('normal', new THREE.BufferAttribute(nrm, 3));
+      var st = BUCKET_STYLE[b.name] || BUCKET_STYLE.body;
+      var mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial(st));
+      mesh.castShadow = true; mesh.receiveShadow = true;
+      bucketMeshes[b.name] = mesh;
+      machine.add(mesh);
+    });
+    machine.rotation.x = -Math.PI / 2;
+    machine.scale.setScalar(0.001);
+    var wrapper = new THREE.Group(); wrapper.add(machine); scene3.add(wrapper);
+    var bbox = new THREE.Box3().setFromObject(wrapper);
+    var center = bbox.getCenter(new THREE.Vector3());
+    machine.position.x -= center.x; machine.position.z -= center.z;
+    machine.position.y -= bbox.min.y;
+    machine.updateMatrixWorld(true);
+    modelReady = true;
+    stage.classList.add('gl-ready');
+  }).catch(function(){ failGL(); });
+}
+
+function applyOrbit(){
+  /* мышь добавляет лёгкий параллакс поверх пользовательской орбиты */
+  var px = pointerDown ? 0 : mouseSm.x, py = pointerDown ? 0 : mouseSm.y;
+  var theta = orbit.theta + px * 0.16;
+  var phi = THREE.MathUtils.clamp(orbit.phi - py * 0.09, 0.62, 1.45);
+  var sp = Math.sin(phi), cp = Math.cos(phi);
+  camera3.position.set(
+    orbit.tx + orbit.radius * sp * Math.sin(theta),
+    orbit.ty + orbit.radius * cp,
+    orbit.tz + orbit.radius * sp * Math.cos(theta)
+  );
+  camera3.lookAt(orbit.tx, orbit.ty, orbit.tz);
+}
+function easeInOutCubic(t){ return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+function resetCamera(){
+  if (!camera3) return;
+  var fromPos = camera3.position.clone(), fromTgt = camTarget.clone();
+  var toPos = new THREE.Vector3(1.62, 1.28, 1.72), toTgt = new THREE.Vector3(orbit.tx, orbit.ty, orbit.tz);
+  presetAnim = { fromPos: fromPos, fromTgt: fromTgt, toPos: toPos, toTgt: toTgt, t0: performance.now(), dur: reduceMotion ? 0 : 950 };
+}
+function glLoop(t){
+  requestAnimationFrame(glLoop);
+  if (!renderer) return;
+  var dt = Math.min(0.05, lastFrame ? (t - lastFrame) / 1000 : 0.016);
+  lastFrame = t;
+  /* плавное слежение параллакса за мышью */
+  mouseSm.x += (mouseGoal.x - mouseSm.x) * 0.05;
+  mouseSm.y += (mouseGoal.y - mouseSm.y) * 0.05;
+  if (!pointerDown && !presetAnim && (t - lastInteract > 2400)) orbit.theta += dt * 0.14;
+  if (scene3.userData.ring) scene3.userData.ring.rotation.z += dt * 0.1;
+  if (scene3.userData.glow) {
+    var s = 1.28 + 0.12 * Math.sin(t * 0.0013);
+    scene3.userData.glow.scale.set(s, s, 1);
+  }
+  if (presetAnim) {
+    var p = presetAnim.dur === 0 ? 1 : Math.min(1, (t - presetAnim.t0) / presetAnim.dur);
+    var e = easeInOutCubic(p);
+    camera3.position.lerpVectors(presetAnim.fromPos, presetAnim.toPos, e);
+    camTarget.lerpVectors(presetAnim.fromTgt, presetAnim.toTgt, e);
+    camera3.lookAt(camTarget);
+    if (p >= 1) {
+      var off = camera3.position.clone().sub(camTarget);
+      orbit.radius = off.length();
+      orbit.phi = Math.acos(THREE.MathUtils.clamp(off.y / orbit.radius, -1, 1));
+      orbit.theta = Math.atan2(off.x, off.z);
+      presetAnim = null;
+    }
+  } else {
+    applyOrbit();
+  }
+  renderer.render(scene3, camera3);
+}
+var mouseGoal = { x: 0, y: 0 };
+stage.addEventListener('pointermove', function(e){
+  var r = stage.getBoundingClientRect();
+  mouseGoal.x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+  mouseGoal.y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+});
+function bindOrbit(){
+  glCanvas.addEventListener('pointerdown', function(e){
+    pointerDown = true; lastX = e.clientX; lastY = e.clientY; lastInteract = performance.now();
+    glCanvas.setPointerCapture && glCanvas.setPointerCapture(e.pointerId);
+    glCanvas.style.cursor = 'grabbing'; presetAnim = null;
+  });
+  glCanvas.addEventListener('pointermove', function(e){
+    if (!pointerDown) return;
+    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    orbit.theta -= dx * 0.0054;
+    orbit.phi = THREE.MathUtils.clamp(orbit.phi - dy * 0.0044, 0.66, 1.45);
+    lastInteract = performance.now();
+  });
+  function endDrag(){ pointerDown = false; lastInteract = performance.now(); glCanvas.style.cursor = 'grab'; }
+  glCanvas.addEventListener('pointerup', endDrag);
+  glCanvas.addEventListener('pointercancel', endDrag);
+  glCanvas.addEventListener('wheel', function(e){
+    e.preventDefault();
+    orbit.radius = THREE.MathUtils.clamp(orbit.radius * (1 + (e.deltaY > 0 ? 0.09 : -0.09)), 1.45, 4.2);
+    lastInteract = performance.now();
+  }, { passive: false });
+}
+
+initGL();
+</script>
+</body>
+</html>
